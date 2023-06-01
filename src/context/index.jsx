@@ -5,13 +5,14 @@ import React from "react";
 const ProductsContext = React.createContext();
 
 function ProductsProvider({ children }) {
-    const [data, setData] = React.useState(null)
+    const [data, setData] = React.useState([])
     const [status, setStatus] = React.useState('idle')
     const [showDetail, setShowDetail] = React.useState(false)
     const [showMyOrder, setShowMyOrder] = React.useState(false)
     const [productDetail, setProductDetail] = React.useState({})
     const [myOrder, setMyOrder] = React.useState([])
     const [myOrders, setMyOrders] = React.useState([])
+    const [searchTerm, setSearchTerm] = React.useState('')
 
     //INICIO DEL DATA FETCHING
     const API = 'https://api.escuelajs.co/api/v1/products'
@@ -52,8 +53,16 @@ function ProductsProvider({ children }) {
         return myorder.reduce((sum, order) => sum + order.price, 0)
     }
 
+    //FUNCION DE BUSQUEDA
+    const searchProduct = data.filter((dat)=>{
+        return dat.title.toLowerCase().includes(searchTerm.toLowerCase())
+    })
+
     return (
         <ProductsContext.Provider value={{
+            searchProduct,
+            searchTerm,
+            setSearchTerm,
             data,
             status,
             showDetail,
