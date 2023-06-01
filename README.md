@@ -16,6 +16,7 @@ Por ahora lo que puedes hacer es ver los productos y sus categorias, ver el deta
 - [Heroicons](https://heroicons.com/) (icon library)
 - [Styled-components](https://styled-components.com/)
 - [Vitejs](https://vitejs.dev/) (con Css-modules)
+- [Platzi fake store API](https://fakeapi.platzi.com/)
 
 ## Caracteristicas
 
