@@ -1,6 +1,7 @@
 # E-Commerce
 
-La App de ToDoList la hice para practicar mis habilidades, usé Styled-components en algunos lados para aprender de esta libreria, tambien usé CSS modules para igualmente practicar el tema de los modulos, y mejoré la app gracias a un curso de React de [Platzi](https://platzi.com/cursos/react/) en el cual realizaban este proyecto que me sirvió para agregar un input de buscar tareas, agregar un loading, aprender de usectContext, localStorage y otras cosas más.
+Este E-commerce lo hice con la finalidad de practicar con Nextjs 13, es mi primer proyecto de Nextjs por lo que de principio puede tener sus fallas o malas practicas pero la idea es ir mejorandolo constantemente, me apoyé en el curso de [Midu de Nextjs](https://youtu.be/tA-_vAz9y78) para saber lo básico de Next, y un curso de [Platzi](https://platzi.com/cursos/react-vite-tailwindcss/) donde hacen lo mismo pero con React Router DOM, la app seguirá en constante desarrollo, irá mejorando en lo que vaya mejorando mi aprendizaje.
+Por ahora lo que puedes hacer es ver los productos y sus categorias, ver el detalle, agregar al carrito, hacer el checkout, ver las ordenes, y ver la orden individual.
 > 👷‍♂️ Sigue en desarrollo constante.
 > 
 
