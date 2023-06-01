@@ -12,10 +12,10 @@ Por ahora lo que puedes hacer es ver los productos y sus categorias, ver el deta
 
 ## **Tecnologias/recursos**
 
-- [React](https://react.dev/)
+- [React 18](https://react.dev/)
+- [Nextjs 13](https://nextjs.org/blog/next-13)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [Heroicons](https://heroicons.com/) (icon library)
-- [Styled-components](https://styled-components.com/)
-- [Vitejs](https://vitejs.dev/) (con Css-modules)
 - [Platzi fake store API](https://fakeapi.platzi.com/)
 
 ## Caracteristicas
