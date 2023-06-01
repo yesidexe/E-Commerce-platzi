@@ -7,7 +7,7 @@ Por ahora lo que puedes hacer es ver los productos y sus categorias, ver el deta
 
 ## Live demo
 
-> [Acá está, igual anda en constante actualización](https://yesidexe.github.io/Todo-list/)
+> Prontito
 > 
 
 ## **Tecnologias/recursos**
