@@ -10,9 +10,9 @@ function CurrentOrder({id}) {
     return (
         <div className="w-96 flex flex-col gap-4">
             {currentOrder &&
-                currentOrder.map((order) => {
+                currentOrder.map((order,index) => {
                     return (
-                        <div className="w-full gap-2 flex justify-between items-center">
+                        <div key={order.id} className="w-full gap-2 flex justify-between items-center">
                             <div className="flex gap-2 items-center">
                                 <figure className=" drop-shadow-md w-20 h-20 rounded-2xl overflow-hidden">
                                     <Image className="object-cover" src={order.images[0]} width="640" height="640" alt={order.title} />

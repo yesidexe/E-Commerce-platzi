@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from "next/router";
 import React from "react";
 
 const ProductsContext = React.createContext();
@@ -12,7 +13,11 @@ function ProductsProvider({ children }) {
     const [productDetail, setProductDetail] = React.useState({})
     const [myOrder, setMyOrder] = React.useState([])
     const [myOrders, setMyOrders] = React.useState([])
+
     const [searchTerm, setSearchTerm] = React.useState('')
+    const [searchCategory, setSearchCategory] = React.useState('')
+
+    const [filteredData, setFilteredData] = React.useState([])
 
     //INICIO DEL DATA FETCHING
     const API = 'https://api.escuelajs.co/api/v1/products'
@@ -22,7 +27,7 @@ function ProductsProvider({ children }) {
 
         const dataFetching = async () => {
             try {
-                const res = await fetch(API, { signal: abortController.signal, cache:'no-store'})
+                const res = await fetch(API, { signal: abortController.signal, cache: 'no-store' })
                 if (res.ok) {
                     const json = await res.json();
                     setData(json);
@@ -38,7 +43,6 @@ function ProductsProvider({ children }) {
         }
 
         dataFetching();
-
         return () => abortController.abort();
     }, [])
     //FIN DEL DATA FETCHING
@@ -53,14 +57,32 @@ function ProductsProvider({ children }) {
         return myorder.reduce((sum, order) => sum + order.price, 0)
     }
 
-    //FUNCION DE BUSQUEDA
-    const searchProduct = data.filter((dat)=>{
-        return dat.title.toLowerCase().includes(searchTerm.toLowerCase())
-    })
+    //FUNCION DE BUSQUEDA Y CATEGORIA
+    const searchData = (data, searchTerm) => {
+        return data?.filter((dat) => dat.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    }
+
+    const searchByCategory = (data, searchCategory) => {
+        return data?.filter((dat) => dat.category.name.toLowerCase().includes(searchCategory.toLowerCase()))
+    }
+
+    React.useEffect(() => {
+        if (searchTerm && !searchCategory) setFilteredData(searchData(data, searchTerm))
+        if (!searchTerm && searchCategory) setFilteredData(searchByCategory(data, searchCategory))
+        if (searchTerm && searchCategory) setFilteredData(searchByCategory(data, searchCategory).filter((dat) => dat.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())))
+        if (!searchTerm && !searchCategory) setFilteredData(data)
+    }, [data, searchTerm, searchCategory])
+
+    //FILTRAR POR CATEGORIA
+    //dat.category.name.toLowerCase().includes(filterCategory)
+    /*const searchCategory = data.filter((dat)=>{
+        return dat.category.name.toLowerCase().includes(filterCategory)
+    })*/
 
     return (
         <ProductsContext.Provider value={{
-            searchProduct,
+            searchCategory,
+            setSearchCategory,
             searchTerm,
             setSearchTerm,
             data,
@@ -77,6 +99,7 @@ function ProductsProvider({ children }) {
             totalPricesOrder,
             myOrders,
             setMyOrders,
+            filteredData,
         }}>
             {children}
         </ProductsContext.Provider>
