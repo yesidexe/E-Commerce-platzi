@@ -4,6 +4,7 @@ import { ProductsContext } from "@/context";
 import { IconMenuBars3, IconXMark } from "@/icons/Icons";
 import Link from "next/link";
 import React from "react";
+import ShoppingBag from "../ShoppingBag/ShoppingBag";
 
 const linksLeft = [
     {
@@ -54,20 +55,29 @@ const linksRight = [
 ];
 
 function ToggleMenu() {
-    const { showMenu, setShowMenu,setSearchCategory } = React.useContext(ProductsContext);
+    const { showMenu, setShowMenu, setSearchCategory, setShowMyOrder } = React.useContext(ProductsContext);
 
-    const handleOnClick = (category)=>{
+    const handleLink = (category) => {
         setSearchCategory(category)
         setShowMenu(false)
     }
 
+    const handleOnClick = () => {
+        setShowMenu(!showMenu)
+        setShowMyOrder(false)
+    }
+
     return (
         <>
-            <div className="lg:hidden px-10 w-full h-full flex items-center gap-4">
-                <button className="grid place-content-center w-7 h-7" onClick={() => setShowMenu(!showMenu)}>
-                    {showMenu ? <IconXMark w={7} h={7} /> : <IconMenuBars3 w={7} h={7} />}
-                </button>
-                <span className="text-lg font-semibold">Shopi</span>
+            <div className="lg:hidden px-10 w-full h-full flex justify-between items-center">
+                <div className="flex gap-4">
+                    <button className="grid place-content-center w-7 h-7"
+                        onClick={handleOnClick}>
+                        {showMenu ? <IconXMark w={7} h={7} /> : <IconMenuBars3 w={7} h={7} />}
+                    </button>
+                    <Link href="/" onClick={() => handleLink("")} className="text-lg font-semibold">Shopi</Link>
+                </div>
+                <ShoppingBag />
             </div>
 
             <nav className={`${showMenu ? "visible opacity-100" : "invisible opacity-0"} h-screen w-full bg-black/50 transition-all duration-200`}>
@@ -76,12 +86,24 @@ function ToggleMenu() {
                         <li key={`${label}-${route}`}>
                             <Link
                                 className="ease-in-out duration-300 hover:bg-yellow-400 w-full block py-2 px-10 "
-                                onClick={()=> handleOnClick(category)}
+                                onClick={() => handleLink(category)}
                                 href={route}>
                                 {label}
                             </Link>
                         </li>
                     ))}
+                    <span className="w-full block border-b border-yellow-400 px-10" />
+                    {
+                        linksRight.map(({ label, route }) => (
+                            <li key={`${label}-${route}`}>
+                                <Link
+                                    className="ease-in-out duration-300 hover:bg-yellow-400 w-full block py-2 px-10 "
+                                    href={route}>
+                                    {label}
+                                </Link>
+                            </li>
+                        ))
+                    }
                 </ul>
             </nav>
         </>

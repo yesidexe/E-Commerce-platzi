@@ -10,11 +10,16 @@ const IconShoppingBag = () => {
     )
 }
 function ShoppingBag() {
-    const { showMyOrder, setShowMyOrder,myOrder} = React.useContext(ProductsContext)
+    const { showMyOrder, setShowMyOrder, myOrder, setShowMenu} = React.useContext(ProductsContext)
+
+    const handleOnClick = ()=>{
+        setShowMyOrder(!showMyOrder)
+        setShowMenu(false)
+    }
 
     return (
         <li 
-            onClick={()=>setShowMyOrder(!showMyOrder)}
+            onClick={handleOnClick}
             className="cursor-pointer flex items-center gap-1">
             <IconShoppingBag/>
             <span>{myOrder.length}</span>

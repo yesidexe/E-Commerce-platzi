@@ -35,7 +35,7 @@ function MyOrder() {
     return (
         <>
             {showMyOrder &&
-                <aside className="gap-5 z-10 justify-between flex drop-shadow-md bg-white py-8 h-[calc(100vh-64px)] w-96 flex-col border-l fixed right-0">
+                <aside className="gap-5 z-10 justify-between flex drop-shadow-md bg-white py-8 h-[calc(100%-48px)] md:h-[calc(100%-56px)] lg:h-[calc(100%-64px)] w-full sm:w-96 flex-col border-l fixed right-0">
                     <div className="px-5 w-full flex justify-between items-center">
                         <h2 className="text-xl font-semibold">My order</h2>
                         <span
