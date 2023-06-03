@@ -18,7 +18,7 @@ function ProductDetail() {
                         <span
                             className="hover:scale-110 ease-linear duration-100 cursor-pointer hover:bg-yellow-300 w-8 h-8 grid place-content-center rounded-full"
                             onClick={() => setShowDetail(false)}>
-                            <IconXMark />
+                            <IconXMark w={5} h={5} />
                         </span>
                     </div>
                     <figure className="drop-shadow-lg rounded-2xl w-72 h-64 overflow-hidden">

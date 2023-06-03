@@ -3,6 +3,8 @@ import Link from "next/link";
 import ShoppingBag from "../ShoppingBag/ShoppingBag";
 import { ProductsContext } from "@/context";
 import React from "react";
+import { IconMenuBars3, IconXMark } from "@/icons/Icons";
+import ToggleMenu from "../ToggleMenu/ToggleMenu";
 
 const linksLeft = [{
     label: 'Shopi',
@@ -45,11 +47,11 @@ const linksRight = [{
 },]
 
 function Header() {
-    const { setSearchCategory } = React.useContext(ProductsContext)
+    const { setSearchCategory} = React.useContext(ProductsContext)
 
     return (
-        <header className="w-screen h-16 bg-yellow-300 fixed top-0 z-10 drop-shadow-md">
-            <nav className="border-b flex justify-between items-center w-full h-full px-20">
+        <header className="fixed w-screen h-12 md:h-14 lg:h-16 bg-yellow-300 top-0 z-10 drop-shadow-md">
+            <nav className="hidden lg:flex justify-between items-center w-full h-full px-20">
                 <ul className="flex gap-3 items-center">
                     {
                         linksLeft.map(({ label, route, category }) => (
@@ -71,7 +73,8 @@ function Header() {
                     <ShoppingBag />
                 </ul>
             </nav>
-        </header>
+            <ToggleMenu/>                   
+        </header>        
     );
 }
 

@@ -3,6 +3,7 @@ import Footer from '@/components/Footer/Footer'
 import MyOrder from '@/components/MyOrder/MyOrder'
 import { ProductsProvider } from '@/context'
 import './globals.css'
+import ToggleMenu from '@/components/ToggleMenu/ToggleMenu'
 
 export const metadata = {
   title: 'E-Commerce App',

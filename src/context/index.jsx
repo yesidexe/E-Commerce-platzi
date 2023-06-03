@@ -19,6 +19,8 @@ function ProductsProvider({ children }) {
 
     const [filteredData, setFilteredData] = React.useState([])
 
+    const [showMenu, setShowMenu] = React.useState(false)
+
     //INICIO DEL DATA FETCHING
     const API = 'https://api.escuelajs.co/api/v1/products'
     React.useEffect(() => {
@@ -81,6 +83,8 @@ function ProductsProvider({ children }) {
 
     return (
         <ProductsContext.Provider value={{
+            showMenu,
+            setShowMenu,
             searchCategory,
             setSearchCategory,
             searchTerm,

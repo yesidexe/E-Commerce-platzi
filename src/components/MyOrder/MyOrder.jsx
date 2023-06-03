@@ -41,7 +41,7 @@ function MyOrder() {
                         <span
                             className="hover:scale-110 ease-linear duration-100 cursor-pointer hover:bg-yellow-300 w-8 h-8 grid place-content-center rounded-full"
                             onClick={() => setShowMyOrder(false)}>
-                            <IconXMark />
+                            <IconXMark w={5} h={5}/>
                         </span>
                     </div>
                     <div className="flex-1 w-full flex flex-col gap-4 overflow-auto">
