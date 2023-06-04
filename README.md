@@ -7,7 +7,7 @@ Por ahora lo que puedes hacer es ver los productos y sus categorias, ver el deta
 
 ## Live demo
 
-> [Acá está, igual anda en constante actualización](https://e-commerce-platzi-h1lkxzhe9-yesidexe.vercel.app/)
+> [Acá está, igual anda en constante actualización](https://e-commerce-platzi.vercel.app/)
 > 
 
 ## **Tecnologias/recursos**
